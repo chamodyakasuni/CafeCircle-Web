@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Pacifico&family=Qwigley&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes spin{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+.spin{
+  animation: spin 40s	linear infinite;
+}
+/* @layer utilities {
+  .img-shadow{
+    filter: drop-shadow(40px 50px 25px #0f1115);
+  }
+
+  .img-shadow2{
+    filter: drop-shadow(10px 30px 15px #3030307a);
+  }
+} */
