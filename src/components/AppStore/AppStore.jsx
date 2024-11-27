@@ -21,7 +21,9 @@ const AppStore = () => {
         <div className='grid grid-cols-1 
         sm:grid-cols-2 
         items-center gap-4'>
-        <div className='space-y-6 max-w-xl max-auto'>
+        <div 
+        data-aos='fade-up'
+        className='space-y-6 max-w-xl max-auto'>
         {/* text-content */}
             <h1 className='text-2xl text-center 
             sm:text-left sm:text-4xl 

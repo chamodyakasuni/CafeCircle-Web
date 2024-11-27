@@ -9,17 +9,17 @@ const Menus = [
   {  
     id: 1,
     name: "Home",
-    link: "#",
+    link: "#home",
   },
   {
     id: 2,
     name: "Services",
-    link: "#",
+    link: "#services",
   },
   {
     id: 3,
     name: "About",
-    link: "#",
+    link: "#about",
   },
 ];
 
@@ -29,13 +29,19 @@ const NavBar = () => {
       <div className="container py-2">
         <div className="flex justify-between items-center gap-4">
           {/* logo section */}
-          <a href="#" className="font-bold text-2xl sm:text-3xl flex justify-center items-center gap-2 tracking-wider font-cursive">
+          <div data-aos="fade-down" data-aos-once="true">
+          <a href="#" 
+          className="font-bold text-2xl sm:text-3xl flex justify-center items-center gap-2 tracking-wider font-cursive">
             <img src={Logo} alt="Logo" className="w-14" />
             Cafe Circle
           </a>
-          
+          </div>
           {/* links section */}
-          <div className="flex justify-between items-center gap-4">
+          <div 
+          data-aos="fade-down"
+          data-aos-once="true"
+          data-aos-delay="300"
+          className="flex justify-between items-center gap-4">
             <ul className="hidden sm:flex items-center gap-4">
               {Menus.map((data) => (
                 <li key={data.id}>

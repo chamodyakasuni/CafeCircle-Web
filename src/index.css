@@ -16,6 +16,10 @@
 .spin{
   animation: spin 40s	linear infinite;
 }
+/* smooth scrool */
+html{
+  scroll-behavior: smooth;
+}
 /* @layer utilities {
   .img-shadow{
     filter: drop-shadow(40px 50px 25px #0f1115);

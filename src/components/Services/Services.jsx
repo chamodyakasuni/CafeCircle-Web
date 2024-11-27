@@ -71,7 +71,9 @@ const Services = () => {
         <div className='container'>
               {/* coffee section */}
         {/* header title */}
-        <div className='text-center mb-20'>
+        <div 
+        data-aos='fade-up'
+        className='text-center mb-20'>
         <h1 className='text-4xl font-bold font-cursive text-gray-800'>
                 Best Coffee for You</h1>
         </div>    
@@ -111,9 +113,12 @@ const Services = () => {
         </div>
         {/* beans section */}
         {/* header title */}
-              <div className='text-center mb-20'>
-                  <h1 className='text-4xl font-bold font-cursive text-gray-800'>
-                      Best Beans for You</h1>
+              <div 
+              data-aos='fade-up'
+              className='text-center mb-20'>
+                  <h1 className='text-4xl font-bold font-cursive text-gray-800 py-10'>
+                     
+                     Best Beans for You</h1>
               </div>
                 {/* services Card section */}
               <div className='grid grid-cols-1 
