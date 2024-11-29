@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { IoCloseOutline } from 'react-icons/io5';
 import PropTypes from 'prop-types';
+import { IoCloseOutline } from 'react-icons/io5';
 
 const Popup = ({ showPopup, setShowPopup }) => {
   console.log("Popup rendered with showPopup:", showPopup);
@@ -54,10 +54,10 @@ const Popup = ({ showPopup, setShowPopup }) => {
     </>
   );
 };
-
 Popup.propTypes = {
   showPopup: PropTypes.bool.isRequired,
   setShowPopup: PropTypes.func.isRequired,
 };
+
 
 export default Popup;

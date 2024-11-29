@@ -11,6 +11,7 @@ import AppStore from "./components/AppStore/AppStore";
 import Footer from "./components/Footer/Footer";
 import Popup from "./components/Popup/Popup";
 
+
 const App = () => {
   useEffect(() => {
     AOS.init({

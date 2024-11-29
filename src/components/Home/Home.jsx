@@ -25,7 +25,9 @@ const Home = () => {
               </motion.h1>
             <div data-aos="fade-up"
               data-aos-delay="400">      
-                  <button className='bg-gradient-to-r from-primary to-secondary border-2 border-primary rounded-full hover px-4 py-2 text-white hover:scale-150 duration-200'>
+                  <button 
+                  
+                  className='bg-gradient-to-r from-primary to-secondary border-2 border-primary rounded-full hover px-4 py-2 text-white hover:scale-150 duration-200'>
                   Coffee And Bean</button>
               </div>
             

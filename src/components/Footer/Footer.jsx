@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import FooterBg from '../../assets/website/coffee-footer.jpg'
+import PropTypes from 'prop-types';
 import { FaFacebook, FaInstagram, FaLinkedin, FaUser } from 'react-icons/fa6';
 
 
@@ -32,7 +33,7 @@ const bgImage = {
     width: '100%',
 }
 
-const Footer = (HandlePopup) => {
+const Footer = ({HandlePopup}) => {
   return (
     <div style={bgImage} className='text-white'>
         <div className='bg-black/40 min-h-[400px]'>
@@ -120,5 +121,8 @@ const Footer = (HandlePopup) => {
     </div>
   )
 }
+Footer.propTypes = {
+  HandlePopup: PropTypes.func.isRequired,
+};
 
 export default Footer;

@@ -1,7 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
-import Img1 from '../../assets/Coffee2.png'
-import Img2 from '../../assets/image2.png'
+import Img1 from '../../assets/coffee/Espresso.png'
+import Img2 from '../../assets/coffee/AMERICANO.png'
+import Img3 from '../../assets/coffee/cappuccino.png'
+import Img4 from '../../assets/bean/arabica.png'
+import Img5 from '../../assets/bean/Liberica.png'
+import Img6 from '../../assets/bean/Excelsa.png'
 
 const ServicesData = [
     {
@@ -15,7 +19,7 @@ const ServicesData = [
 
     {
         id: 2,
-        img: Img1,
+        img: Img2,
         name: "Americano",
         description:
             "Americano or American is a type of coffee drink prepared by diluting an espresso with hot water, giving it a similar strength to, but different flavor from, traditionally brewed coffee. ",
@@ -24,7 +28,7 @@ const ServicesData = [
 
     {
         id: 3,
-        img: Img1,
+        img: Img3,
         name: "Cappuccino",
         description:
             "A cappuccino is an espresso-based coffee drink that originated in Italy and is traditionally prepared with steamed milk foam.",
@@ -36,30 +40,31 @@ const ServicesData = [
 const ServicesBeanData = [
     {
         id: 1,
-        img: Img2,
+        img: Img4,
         name: "Arabica coffee beans",
         description:
             "Arabica coffee beans are a type of coffee made from the beans of the Coffea arabica plant. Arabica originated in the southwestern highlands of Ethiopia and is the most popular kind of coffee worldwide.",
         aosDelay: "100",
     },
+     {
+        id: 3,
+        img: Img5,
+        name: "Liberica coffee beans",
+        description:
+            "Liberica coffee beans are a type of coffee made from the beans of the Coffea liberica plant. Liberica originated in West Africa and is known for its unique and bold flavor.",
+        aosDelay: "100",
+    },
 
     {
         id: 2,
-        img: Img2,
+        img: Img6,
         name: "Excelsa coffee beans",
         description:
             "Excelsa coffee beans are a type of coffee made from the beans of the Coffea excelsa plant. Excelsa originated in Southeast Asia and is known for its tart and fruity flavor.",
         aosDelay: "100",
     },
 
-    {
-        id: 3,
-        img: Img2,
-        name: "Liberica coffee beans",
-        description:
-            "Liberica coffee beans are a type of coffee made from the beans of the Coffea liberica plant. Liberica originated in West Africa and is known for its unique and bold flavor.",
-        aosDelay: "100",
-    },
+   
 
 ];
 
@@ -130,7 +135,7 @@ const Services = () => {
                               data-aos='fade-up'
                               data-aos-delay={data.aosDelay}
                               key={index}
-                              className='rounded-2xl bg-white 
+                              className='rounded-2xl bg-white  
                     hover:bg-primary hover:text-white 
                     shadow-xl duration-200 max-w-[300px] 
                     group relative'>
