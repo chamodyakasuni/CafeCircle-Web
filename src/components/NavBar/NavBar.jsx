@@ -20,11 +20,11 @@ const Menus = [
     name: "About",
     link: "#about",
   },
-  {
-    id: 4,
-    name: "Dashboard",
-    link: "#dashboard",
-  },
+  // {
+  //   id: 4,
+  //   name: "Dashboard",
+  //   link: "#dashboard",
+  // },
 ];
 
 const NavBar = () => {
