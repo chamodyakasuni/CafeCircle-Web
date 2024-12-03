@@ -22,6 +22,10 @@ const FooterLinks = [
       link: "#Contact",
         title: 'Contact',
     },
+  {
+    link: "#Menu",
+    title: 'Menu',
+  },
 ];
 
 const bgImage = {
@@ -52,7 +56,8 @@ const Footer = ({HandlePopup}) => {
                       memories - Your perfect coffee spot.
                     </p>
                     
-                    <button 
+                    <button
+                     
                     onClick={HandlePopup}
                     className=' bg-[#3d2517] 
                     py-2 px-4 mt-5 text-sm rounded-full  hover:scale-105 duration-200 flex items-center gap-2'>

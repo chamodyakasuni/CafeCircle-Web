@@ -1,13 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { motion } from 'framer-motion';
-import HeroImg from '../../assets/Coffee2.png';
+import HeroImg from '../../assets/coffee2.png';
+// import Services from '../Services/Services';
+// import AppStore from '../AppStore/AppStore';
+// import Banner from '../Banner/Banner';
 
 
 
 const Home = () => {
   
   return (
+  
           <div className='min-h-[px] sm:min-h-[750px] 
           bg-brandDark flex justify-center items-center text-white'>
         <div className="container pb-8 sm:pb-0">
@@ -56,10 +60,9 @@ const Home = () => {
           </div>
           </div>
           </div>
-        </div>
       </div>
-    
-   
+    </div>
+      
   )
 }
 
