@@ -37,7 +37,7 @@ const bgImage = {
     width: '100%',
 }
 
-const Footer = ({HandlePopup}) => {
+const Footer = ({handlePopup}) => {
   return (
     <div style={bgImage} className='text-white'>
         <div className='bg-black/40 min-h-[400px]'>
@@ -58,7 +58,7 @@ const Footer = ({HandlePopup}) => {
                     
                     <button
                      
-                    onClick={HandlePopup}
+              onClick={handlePopup}
                     className=' bg-[#3d2517] 
                     py-2 px-4 mt-5 text-sm rounded-full  hover:scale-105 duration-200 flex items-center gap-2'>
                       <FaUser />
@@ -127,7 +127,7 @@ const Footer = ({HandlePopup}) => {
   )
 }
 Footer.propTypes = {
-  HandlePopup: PropTypes.func.isRequired,
+  handlePopup: PropTypes.func.isRequired,
 };
 
 export default Footer;

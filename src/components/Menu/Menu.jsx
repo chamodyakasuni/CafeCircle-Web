@@ -1,6 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-import NavBar from "../NavBar/NavBar";
+import ScrollToTopButton from "../ScrollToTopButton/ScrollToTopButton";
+import SideBar from "../SideBar/SideBar";
+
 import Img1 from '../../assets/coffee/espresso2.png'
 import Img2 from '../../assets/coffee/D-espresso.png'
 import Img3 from '../../assets/coffee/americano (2).png'
@@ -14,18 +16,26 @@ import Img10 from '../../assets/coffee/ice-macchiato.png'
 import Img11 from '../../assets/coffee/ice-cappucccino.png'
 import Img12 from '../../assets/coffee/ice-frappuccino.png'
 import Logo from "../../assets/website/coffee_logo.png";
-import Footer from "../Footer/Footer";
+import BgImage from '../../assets/bgStyle.png';
+
+const bgStyle = {
+  backgroundImage: `url(${BgImage})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+};
 
 const Menu = () => {
   return (
     <>
-    <NavBar/>
-    <span id='menu'></span>
+    <SideBar/>
+    <div style={bgStyle} className="overflow-x-hidden">
+    <div className="min-h-screen bg-white/50 backdrop-blur-sm ">
     <div className="container mx-auto px-4 py-8">
       {/* Header Section */}
       <header className="text-center">
           <div data-aos="fade-down" data-aos-once="true">
-            <a href='/'
+            <a href='/home'
               className="font-bold text-2xl sm:text-3xl flex justify-center items-center gap-2 tracking-wider font-cursive">
               <img src={Logo} alt="Logo" className="w-14" />
               Cafe Circle
@@ -100,6 +110,30 @@ const Menu = () => {
         </div>
       </section>
 
+            {/* Bean Section */}
+            <section className="mt-8">
+              <h2 className="text-4xl font-bold font-cursive text-gray-800 py-10">
+              Bean
+              </h2>
+              <ul className="space-y-2">
+                {[
+                  { name: "Arabica Beans", price: "15.50" },
+                  { name: "Robusta Beans", price: "14.50" },
+                  { name: "Liberica Beans", price: "10.50" },
+                  { name: "Excelsa Beans", price: "20.50" },
+                  
+                ].map((item, index) => (
+                  <li
+                    key={index}
+                    className="flex justify-between items-center border-black/50 border-b pb-2"
+                  >
+                    <span className="font-bold">{item.name}</span>
+                    <span className="font-bold">${item.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
       {/* Food Section */}
       <section className="mt-8">
           <h2 className="text-4xl font-bold font-cursive text-gray-800 py-10">Food</h2>
@@ -114,10 +148,10 @@ const Menu = () => {
           ].map((item, index) => (
             <li
               key={index}
-              className="flex justify-between items-center border-b pb-2"
+              className="flex justify-between items-center border-black/50 border-b pb-2"
             >
               <span className="font-bold">{item.name}</span>
-              <span>${item.price}</span>
+              <span className="font-bold">${item.price}</span>
             </li>
           ))}
         </ul>
@@ -137,10 +171,10 @@ const Menu = () => {
           ].map((item, index) => (
             <li
               key={index}
-              className="flex justify-between items-center border-b pb-2"
+              className="flex justify-between items-center border-black/50 border-b pb-2"
             >
               <span className="font-bold">{item.name}</span>
-              <span>${item.price}</span>
+              <span className="font-bold">${item.price}</span>
             </li>
           ))}
         </ul>
@@ -153,7 +187,9 @@ const Menu = () => {
         </p>
       </footer>
     </div>
-    <Footer/>
+   <ScrollToTopButton/>
+   </div>
+   </div>
     </>
   );
 };

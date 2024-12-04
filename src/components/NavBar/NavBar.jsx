@@ -1,27 +1,31 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/website/coffee_logo.png";
 import { FaCoffee } from "react-icons/fa";
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 const Menus = [
-  { id: 1, name: "Home", link: "" },
+  { id: 1, name: "Home", link: "/home" },
   { id: 2, name: "Services", link: "#services" },
   { id: 3, name: "About", link: "#about" },
-  { id: 4, name: "Menu", link: "#menu" },
 ];
 
 const NavBar = () => {
   const navigate = useNavigate();
 
+  const OrderBtnClick = () => {
+    navigate('/menu');
+  };
+
   return (
-    <nav className="bg-gradient-to-r from-secondary to-secondary/100 text-white">
+    
+    <nav className=" bg-gradient-to-r from-secondary to-secondary/100 text-white">
       <div className="container py-2">
         <div className="flex justify-between items-center gap-4">
           {/* logo section */}
           <div data-aos="fade-down" data-aos-once="true">
-            <a href='#menu'
+            <a href='/home'
               className="font-bold text-2xl sm:text-3xl flex justify-center items-center gap-2 tracking-wider font-cursive">
               <img src={Logo} alt="Logo" className="w-14" />
               Cafe Circle
@@ -50,9 +54,9 @@ const NavBar = () => {
               ))}
             </ul>
             <button 
-              onClick={()=>navigate('menu')}
-              className="bg-primary/70 px-4 py-2 rounded-full hover:scale-105 duration-200 flex items-center gap-3">
-              Order
+              onClick={OrderBtnClick}
+              className="bg-primary/70 px-4 py-2 hidden sm:flex rounded-full hover:scale-105 duration-200 items-center gap-3">
+              Menu
               <FaCoffee className="text-xl cursor-pointer" />
             </button>
           </div>

@@ -2,9 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IoCloseOutline } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom';
 
 const Popup = ({ showPopup, setShowPopup }) => {
   console.log("Popup rendered with showPopup:", showPopup);
+
+  const navigate = useNavigate();
+  const LoginBtnClick = () => {
+    navigate('/dashboard');
+  };
+
   return (
     <>
       {showPopup && (
@@ -41,7 +48,7 @@ const Popup = ({ showPopup, setShowPopup }) => {
                 <div>
                   <button
                     className='w-full bg-primary text-white rounded-md p-2'
-                    onClick={() => setShowPopup(false)}
+                    onClick={LoginBtnClick}
                   >
                     Login
                   </button>
