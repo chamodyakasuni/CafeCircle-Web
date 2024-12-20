@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 
 import HeroImg from "../../assets/coffee2.png";
-
 import Services from "../Services/Services";
 import AppStore from "../AppStore/AppStore";
 import Banner from "../Banner/Banner";
@@ -11,6 +10,7 @@ import Footer from "../Footer/Footer";
 import Popup from "../Popup/Popup";
 import ScrollToTopButton from "../ScrollToTopButton/ScrollToTopButton";
 import SideBar from "../SideBar/SideBar";
+import Navbar from "../Navbar/Navbar";
 
 const Home = () => {
   const [showPopup, setShowPopup] = React.useState(false);
@@ -26,6 +26,7 @@ const Home = () => {
 
   return (
     <div>
+    <Navbar/>
     <SideBar/>
       {/* Hero Section */}
       <div
@@ -73,7 +74,7 @@ const Home = () => {
               <img
                 src={HeroImg}
                 alt="Coffee"
-                className="w-[300px] sm:w-[450px] mx-auto"
+                className="w-[300px] sm:w-[450px] mx-auto spin drop-shadow-xl"
               />
               <div
                 data-aos="fade-left"

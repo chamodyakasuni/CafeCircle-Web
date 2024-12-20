@@ -1,20 +1,13 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import NavigationBar from '../AdminPanel/NavigationBar';
+import React from 'react'
 
-const Dashboard = () => {
-    return (
-        <>
-           
-            <div>
-                <NavigationBar />
-                
-            </div>
-        </>
-    );
-};
+function Dashboard() {
+  return (
+    <div>Dashboard</div>
+  )
+}
 
-export default Dashboard;
+export default Dashboard
 
 
 

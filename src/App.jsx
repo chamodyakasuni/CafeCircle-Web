@@ -6,12 +6,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Routes, Route } from "react-router-dom";
 
-import NavBar from "./components/NavBar/NavBar";
+// import NavBar from "./components/NavBar/NavBar";
 import Home from "./components/Home/Home";
 import Menu from "./components/Menu/Menu";
-import Dashboard from "./components/Dashboard/Dashboard";
 import Services from "./components/Services/Services";
 import Banner from "./components/Banner/Banner";
+import AdminPanel from "./components/Admin Panel/AdminPanel";
+// import Product from "./components/Product/Product";
 
 
 
@@ -30,13 +31,13 @@ const App = () => {
   return (
     <main>
     <div className="overflow-x-hidden">
-        <NavBar />
+        {/* <Product /> */}
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/services" element={<Services />} />
           <Route path="/banner" element={<Banner />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<AdminPanel />} />
         </Routes>
     </div>
     </main>
