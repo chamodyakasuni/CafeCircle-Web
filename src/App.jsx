@@ -12,7 +12,12 @@ import Menu from "./components/Menu/Menu";
 import Services from "./components/Services/Services";
 import Banner from "./components/Banner/Banner";
 import AdminPanel from "./components/Admin Panel/AdminPanel";
+// import Users from "./components/Users/Users";
+// import Orders from "./components/Orders/Orders";
+// import Customers from "./components/Customers/Customers";
+// import Settings from "./components/Settings/Settings";
 // import Product from "./components/Product/Product";
+
 
 
 
@@ -37,7 +42,12 @@ const App = () => {
           <Route path="/menu" element={<Menu />} />
           <Route path="/services" element={<Services />} />
           <Route path="/banner" element={<Banner />} />
-          <Route path="/dashboard" element={<AdminPanel />} />
+          <Route path="/adminpanel" element={<AdminPanel />} />
+          {/* <Route path="/users" element={<Users />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/settings" element={<Settings />} /> */}
         </Routes>
     </div>
     </main>

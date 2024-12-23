@@ -1,7 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
-import Dashboard from '../Dashboard/Dashboard';
+// import Customers from '../Customers/Customers';
+// import Orders from '../Orders/Orders';
+// import Dashboard from '../Dashboard/Dashboard';
+// import Product from '../Product/Product';
+import Users from '../Users/Users';
 
 const AdminPanel = () => {
     return (
@@ -9,9 +13,9 @@ const AdminPanel = () => {
             <div className='w-full flex'>
                 <NavigationBar />
             
-            <main className='flex grow'>
-                <Dashboard />
-            </main>
+                <main className='grow overflow-y-auto'>
+                    <Users />
+                </main>
             </div>
         </>
     );

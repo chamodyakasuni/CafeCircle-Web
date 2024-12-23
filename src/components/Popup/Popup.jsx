@@ -57,7 +57,7 @@ const Popup = ({ showPopup, setShowPopup }) => {
             },
             confirmButtonColor: '#8b4513',
           });
-          navigate('/dashboard');
+          navigate('/adminpanel');
         } else {
           Swal.fire({
             icon: 'error',
