@@ -47,55 +47,55 @@ const options = {
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col sm:flex-row h-screen bg-[#F6F4F2]">
+    <div className="flex flex-col sm:flex-row h-screen bg-lightwhite2">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {/* Main Content */}
       <main className="flex-1 p-2">
         {/* Header */}
         <header className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-2">
           <div className="mb-1 lg:mb-0">
-            <h1 className="text-lg font-bold text-[#8D5A5A]">Welcome to CafeCircle</h1>
-            <p className="text-s text-[#C5AFAF]">Choose the Category</p>
+            <h1 className="text-lg font-bold text-lightBrown">Welcome to CafeCircle</h1>
+            <p className="text-s text-lightBrown3">Choose the Category</p>
           </div>
           <div className="flex flex-col lg:flex-row items-start lg:items-center space-y-1 lg:space-y-0 lg:space-x-1 ml-auto">
             <input
               type="text"
               placeholder="Search something"
-              className="px-2 py-2 rounded-3xl border border-[#E8D5CF] bg-[#FFF9F6] text-[#8D5A5A] text-s items-baseline text-right"
+              className="px-2 py-2 rounded-3xl border border-lightBrown2 bg-lighterWhite text-lightBrown text-s items-baseline text-right"
             />
             <div className="flex items-center ml-auto">
-              <PersonIcon className="text-[#8D5A5A] mr-1 text-s" />
-              <span className="text-s text-[#8D5A5A]">Admin</span>
+              <PersonIcon className="text-lightBrown mr-1 text-s" />
+              <span className="text-s text-lightBrown">Admin</span>
             </div>
           </div>
         </header>
 
         {/* Stats Section */}
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-          <div className="p-2 bg-white rounded-3xl shadow-md border border-[#E8D5CF]">
-            <h3 className="text-xs text-[#C5AFAF]">Total Orders</h3>
-            <p className="text-md font-bold text-[#8D5A5A]">21,375</p>
+          <div className="p-2 bg-white rounded-3xl shadow-md border border-lightBrown2">
+            <h3 className="text-xs text-lightBrown3">Total Orders</h3>
+            <p className="text-md font-bold text-lightBrown">21,375</p>
           </div>
-          <div className="p-2 bg-white rounded-3xl shadow-md border border-[#E8D5CF]">
-            <h3 className="text-xs text-[#C5AFAF]">New Customers</h3>
-            <p className="text-md font-bold text-[#8D5A5A]">1,012</p>
+          <div className="p-2 bg-white rounded-3xl shadow-md border border-lightBrown2">
+            <h3 className="text-xs text-lightBrown3">New Customers</h3>
+            <p className="text-md font-bold text-lightBrown">1,012</p>
           </div>
-          <div className="p-2 bg-white rounded-3xl shadow-md border border-[#E8D5CF]">
-            <h3 className="text-xs text-[#C5AFAF]">Total Sales</h3>
-            <p className="text-md font-bold text-[#8D5A5A]">$24,254</p>
+          <div className="p-2 bg-white rounded-3xl shadow-md border border-lightBrown2">
+            <h3 className="text-xs text-lightBrown3">Total Sales</h3>
+            <p className="text-md font-bold text-lightBrown">$24,254</p>
           </div>
         </section>
 
         {/* Sales Analytics and Trending Coffee */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
-          <div className="p-2 bg-white rounded-3xl shadow-md border border-[#E8D5CF]" style={{ width: '100%', height: '400px' }}>
-            <h3 className="mb-2 text-[#8D5A5A] font-bold">Sales Analytics</h3>
+          <div className="p-2 bg-white rounded-3xl shadow-md border border-lightBrown2" style={{ width: '100%', height: '400px' }}>
+            <h3 className="mb-2 text-lightBrown font-bold">Sales Analytics</h3>
             <Line data={data} options={options} />
           </div>
 
-          <div className="p-4 bg-white rounded-3xl shadow-md border border-[#E8D5CF]">
-            <h3 className="mb-4 text-[#8D5A5A] font-bold">Trending Coffee</h3>
-            <ul className="space-y-2 text-[#8D5A5A] text-sm ">
+          <div className="p-4 bg-white rounded-3xl shadow-md border border-lightBrown2">
+            <h3 className="mb-4 text-lightBrown font-bold">Trending Coffee</h3>
+            <ul className="space-y-2 text-lightBrown text-sm ">
               <li className="flex justify-between items-center">
                 <span>
                   <img src={cappuccinoImg} alt="Cappuccino" className="w-10 h-10 inline mr-1" />
@@ -137,14 +137,14 @@ const Dashboard = () => {
 
         {/* Recent Orders */}
         <section className="mb-4">
-          <div className="p-4 bg-white rounded-lg shadow-md border border-[#E8D5CF]">
-            <h3 className="mb-2 text-[#8D5A5A] font-bold">Recent Orders</h3>
-            <table className="w-full text-left text-[#8D5A5A] text-sm">
+          <div className="p-4 bg-white rounded-lg shadow-md border border-lightBrown2">
+            <h3 className="mb-2 text-lightBrown font-bold">Recent Orders</h3>
+            <table className="w-full text-left text-lightBrown text-sm">
               <thead>
                 <tr>
-                  <th className="border-b border-[#E8D5CF] pb-2">Coffee</th>
-                  <th className="border-b border-[#E8D5CF] pb-2">Date</th>
-                  <th className="border-b border-[#E8D5CF] pb-2">Price</th>
+                  <th className="border-b border-lightBrown2 pb-2">Coffee</th>
+                  <th className="border-b border-lightBrown2 pb-2">Date</th>
+                  <th className="border-b border-lightBrown2 pb-2">Price</th>
                 </tr>
               </thead>
               <tbody>

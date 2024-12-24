@@ -73,7 +73,7 @@ const NavigationBar = () => {
       </div>
       <div
         onClick={() => setIsExpanded(!isExpanded)}
-        className='w-5 h-5 bg-primary rounded-full 
+        className='w-5 h-5 bg-lightBrown rounded-full 
         absolute -right-[10.5px] top-16 flex items-center justify-center text-white'
       >
         <BiRightArrow className="w-[10px]" />
@@ -82,7 +82,7 @@ const NavigationBar = () => {
       <div className='mt-10 flex flex-col space-y-8 flex-grow cursor-pointer'>
         {navLinks.map((item, index) => (
           <div key={index} onClick={() => handleNavLinkClick(item.path, index)} className={'flex space-x-2' + (activeNavIndex === index
-            ? " bg-primary text-white font-semibold rounded "
+            ? " bg-lightBrown text-white font-semibold rounded "
             : " ")
           }
           >
@@ -93,10 +93,10 @@ const NavigationBar = () => {
       </div>
 
       {/* Logout Button */}
-      <div className='text-black px-2 py-2 rounded-full hover:bg-primary transition
+      <div className='text-black px-2 py-2 rounded-full hover:bg-lightBrown transition
                       hover:scale-105 duration-200 mb-4 mt-auto flex items-center space-x-2 cursor-pointer font-serif '
         onClick={handleLogout}>
-        <LogOut className={!isExpanded ? " bg-primary rounded-full w-8 h-8" : ""} />
+        <LogOut className={!isExpanded ? " bg-lightBrown rounded-full w-8 h-8" : ""} />
         <span className={isExpanded ? "block" : "hidden"}>Logout</span>
       </div>
     </motion.div>

@@ -17,6 +17,11 @@ export default {
         "lightOrange": "#f1dabf",
         "darkGray": "#1a1f25",
         "lightGray": "#272c35",
+        "lightBrown": "#8D5A5A",
+        "lightBrown2": "#E8D5CF",
+        "lightBrown3": "#C5AFAF",
+        "lighterWhite": "#FFF9F6",
+        "lightwhite2": "#F6F4F2",
         },
         container: {
           center: true,
