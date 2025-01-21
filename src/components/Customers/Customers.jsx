@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PersonIcon from "@mui/icons-material/Person";
+import NavigationBar from "../NavigationBar/NavigationBar";
 
 const customersData = [
     { id: 1, name: "John Doe", email: "john.doe@example.com", phone: "+1 234 567 890", orders: 15, totalSpent: "$250" },
@@ -9,9 +10,13 @@ const customersData = [
     { id: 4, name: "Emily Davis", email: "emily.davis@example.com", phone: "+1 321 654 987", orders: 12, totalSpent: "$200" },
 ];
 
+
 const Customers = () => {
     return (
-        <div className="flex flex-col sm:flex-row h-screen bg-lightwhite2">
+        <>
+            <div className='w-full flex'>
+                <NavigationBar />
+        <div className="grow flex flex-col sm:flex-row h-screen bg-lightwhite2">
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             {/* Main Content */}
@@ -57,6 +62,8 @@ const Customers = () => {
                 </section>
             </main>
         </div>
+        </div>
+        </>
     );
 };
 

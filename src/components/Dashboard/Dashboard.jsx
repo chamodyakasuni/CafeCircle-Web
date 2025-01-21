@@ -12,6 +12,7 @@ import {
   Legend,
 } from 'chart.js';
 import PersonIcon from '@mui/icons-material/Person';
+import NavigationBar from '../NavigationBar/NavigationBar';
 
 import cappuccinoImg from '../../assets/coffee/capaccino.png';
 import latteImg from '../../assets/coffee/cafe-latte.png'
@@ -47,7 +48,10 @@ const options = {
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col sm:flex-row h-screen bg-lightwhite2">
+    <>
+      <div className='w-full flex'>
+        <NavigationBar />
+        <div className="grow overflow-y-auto flex flex-col sm:flex-row h-screen bg-lightwhite2">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {/* Main Content */}
       <main className="flex-1 p-2">
@@ -164,6 +168,8 @@ const Dashboard = () => {
         </section>
       </main>
     </div>
+    </div>
+    </>
   );
 };
 

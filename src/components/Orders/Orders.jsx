@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import NavigationBar from "../NavigationBar/NavigationBar";
 
 const ordersData = [
     { id: "#001", customer: "John Doe", coffee: "Cappuccino", date: "12/23/2024", quantity: 2, total: "$10" },
@@ -10,7 +11,10 @@ const ordersData = [
 
 const Orders = () => {
     return (
-        <div className="flex flex-col sm:flex-row h-screen bg-lightwhite2">
+        <>
+            <div className='w-full flex'>
+                <NavigationBar />
+        <div className="grow flex flex-col sm:flex-row h-screen bg-lightwhite2">
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             {/* Main Content */}
@@ -57,6 +61,8 @@ const Orders = () => {
                 </section>
             </main>
         </div>
+        </div>
+        </>
     );
 };
 

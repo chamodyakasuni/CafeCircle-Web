@@ -5,6 +5,9 @@ import Swal from 'sweetalert2';
 import PersonIcon from '@mui/icons-material/Person';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import NavigationBar from '../NavigationBar/NavigationBar';
+
+
 
 const User = () => {
     const [users, setUsers] = useState([]);
@@ -60,7 +63,7 @@ const User = () => {
             return;
         }
 
-        const hashedPassword = btoa(newUser.password); // Simple base64 encoding for demonstration
+        const hashedPassword = btoa(newUser.password);
         if (editIndex !== null) {
             axios.put('http://localhost/cafecircle/api.php', { id: users[editIndex].employee_id, ...newUser, password: hashedPassword })
                 .then(response => {
@@ -212,7 +215,10 @@ const User = () => {
     );
 
     return (
-        <div className="flex flex-col sm:flex-row h-screen bg-lightwhite2">
+        <>
+            <div className='w-full flex'>
+                <NavigationBar />
+        <div className="grow flex flex-col sm:flex-row h-screen bg-lightwhite2">
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             {/* Main Content */}
             <main className="flex-1 p-2">
@@ -314,17 +320,18 @@ const User = () => {
                                             <td className="py-2">{user.status}</td>
                                             <td className="py-2">{user.phone_number}</td>
                                             <td className="py-2">
-                                                <button
-                                                    onClick={() => handleDeleteUser(index)}
-                                                    className="px-2 py-1 bg-lightBrown text-white rounded-3xl mr-2"
-                                                >
-                                                    Delete
-                                                </button>
+                                                
                                                 <button
                                                     onClick={() => handleEditUser(index)}
-                                                    className="px-2 py-1 bg-gray-500 text-white rounded-3xl"
+                                                    className="px-2 py-1 bg-lightBrown text-white rounded-3xl mr-2"
                                                 >
                                                     Edit
+                                                </button>
+                                                <button
+                                                    onClick={() => handleDeleteUser(index)}
+                                                    className=" px-2 py-1 bg-gray-500 text-white rounded-3xl"
+                                                >
+                                                    Delete
                                                 </button>
                                             </td>
                                         </tr>
@@ -339,7 +346,8 @@ const User = () => {
                 {isPopupOpen && (
                     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-40">
                         <div className="bg-white p-4 rounded-lg shadow-md w-1/3">
-                            <h3 className="mb-4 text-lightBrown font-bold">{editIndex !== null ? "Edit User" : "Add New User"}</h3>
+                            <h3 className="mb-4 text-lightBrown font-bold">
+                            {editIndex !== null ? "Edit User" : "Add New User"}</h3>
                             <div className="mb-2">
                                 <label className="block text-sm text-lightBrown">Name <span className="text-red-500">*</span></label>
                                 <input
@@ -450,6 +458,8 @@ const User = () => {
                 )}
             </main>
         </div>
+    </div>
+        </>
     );
 };
 

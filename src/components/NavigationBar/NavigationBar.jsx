@@ -16,13 +16,15 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 const navLinks = [
-  { name: "Dashboard", path: "/", icon: LayoutDashboard },
+  { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
   { name: "Users", path: "/users", icon: User },
-  { name: "E-Commerce", path: "/ecommerce", icon: ShoppingCart },
-  { name: "Orders", path: "/product", icon: SendToBack },
+  { name: "Products", path: "/product", icon: ShoppingCart },
+  { name: "Orders", path: "/orders", icon: SendToBack },
   { name: "Customers", path: "/customers", icon: User },
   { name: "Settings", path: "/settings", icon: Settings },
 ];
+
+
 const variants = {
   expanded: { width: "20%" },
   nonExpanded: { width: "5%" }
@@ -81,13 +83,17 @@ const NavigationBar = () => {
 
       <div className='mt-10 flex flex-col space-y-8 flex-grow cursor-pointer'>
         {navLinks.map((item, index) => (
-          <div key={index} onClick={() => handleNavLinkClick(item.path, index)} className={'flex space-x-2' + (activeNavIndex === index
-            ? " bg-lightBrown text-white font-semibold rounded "
-            : " ")
-          }
+          <div 
+            key={index} 
+            onClick={() => handleNavLinkClick(item.path, index)} 
+            className={`flex space-x-2 ${activeNavIndex === index ? "bg-lightBrown text-white font-semibold rounded" : ""}`}
           >
             <item.icon />
-            <span className={isExpanded ? "block" : "hidden"}>{item?.name}</span>
+            <span 
+              className={`${isExpanded ? "block" : "hidden"} ${activeNavIndex === index ? "text-white" : ""}`}
+            >
+              {item?.name}
+            </span>
           </div>
         ))}
       </div>

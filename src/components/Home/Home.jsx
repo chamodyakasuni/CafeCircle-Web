@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 
-import HeroImg from "../../assets/coffee2.png";
+import HeroImg from "../../assets/HeroImage.png";
 import Services from "../Services/Services";
 import AppStore from "../AppStore/AppStore";
 import Banner from "../Banner/Banner";
