@@ -8,11 +8,11 @@ import Swal from 'sweetalert2';
 const Product = () => {
     const [products, setProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [newProduct, setNewProduct] = useState({ id: "", name: "", description: "", price: "", category: "", stock: "", image: "" });
+    const [newProduct, setNewProduct] = useState({ name: "", description: "", price: "", category: "", stock: "", image: "" });
     const [imagePreview, setImagePreview] = useState(null);
-    const [ setErrors] = useState({});
+    const [errors, setErrors] = useState({});
     const [originalProduct, setOriginalProduct] = useState(null);
-    const [ setErrorMessage] = useState("");
+    const [setErrorMessage] = useState("");
     const [editIndex, setEditIndex] = useState(null);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     
@@ -29,9 +29,9 @@ const Product = () => {
         const newErrors = {};
         if (!newProduct.name) newErrors.name = "Product name is required.";
         if (!newProduct.description) newErrors.description = "Description is required.";
-        if (!newProduct.price || isNaN(newProduct.price)) newErrors.price = "Valid price is required.";
+        if (!newProduct.price) newErrors.price = "Valid price is required.";
         if (!newProduct.category) newErrors.category = "Category is required.";
-        if (!newProduct.stock || isNaN(newProduct.stock)) newErrors.stock = "Valid stock quantity is required.";
+        if (!newProduct.stock) newErrors.stock = "Valid stock quantity is required.";
         if (!newProduct.image) newErrors.image = "Image is required.";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -48,8 +48,18 @@ const Product = () => {
             return;
         }
 
+        const formData = new FormData();
+        Object.keys(newProduct).forEach(key => {
+            formData.append(key, newProduct[key]);
+        });
+
         if (editIndex !== null) {
-            axios.put("http://localhost/cafecircle/api.php?type=products", { id: products[editIndex].product_id, ...newProduct,})
+            formData.append( products[editIndex].product_id);
+            axios.put("http://localhost/cafecircle/api.php?type=products", formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
                 .then(response => {
                     console.log('Product updated:', response.data);
                     const updatedProducts = [...products];
@@ -70,8 +80,11 @@ const Product = () => {
                 })
                 .catch(error => console.error("Error updating product:", error));
         } else {
-
-            axios.post("http://localhost/cafecircle/api.php?type=products", newProduct)
+            axios.post("http://localhost/cafecircle/api.php?type=products", formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
                 .then(response => {
                     console.log('Product added:', response.data);
                     setProducts([...products, response.data.product]);
@@ -87,7 +100,7 @@ const Product = () => {
                         confirmButtonColor: "#8b4513",
                     });
                 })
-                .catch((error) => console.error("Error adding product:", error));
+                .catch(error => console.error("Error adding product:", error));
         }
 
         setIsPopupOpen(false);
@@ -99,9 +112,9 @@ const Product = () => {
     // Open modal for editing
     const handleEditProduct = (index) => {
         const productToEdit = products[index];
-        setNewProduct( ...productToEdit);
-        setOriginalProduct( ...productToEdit);
-        setImagePreview( ...productToEdit.image);
+        setNewProduct({ ...productToEdit, image: "" });
+        setOriginalProduct({ ...productToEdit });
+        setImagePreview(productToEdit.image);
         setEditIndex(index);
         setIsPopupOpen(true);
     };
@@ -124,7 +137,7 @@ const Product = () => {
                     confirmButtonColor: "#8b4513",
                 });
             })
-            .catch((error) => console.error("Error deleting product:", error));
+            .catch(error => console.error("Error deleting product:", error));
     };
 
     const openPopup = () => {
@@ -152,17 +165,29 @@ const Product = () => {
     };
 
     // Handle image upload
-    const handleImageChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setNewProduct({ ...newProduct, image: reader.result });
-                setImagePreview(reader.result);
-            };
-            reader.readAsDataURL(file);
+    const handleImageChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+        // Check if the file is a valid image type
+        const validTypes = ["image/png", "image/jpeg"];
+        if (!validTypes.includes(file.type)) {
+            alert("Invalid file type. Please upload a PNG or JPEG image.");
+            return;
         }
-    };
+
+        // Use FileReader to generate a preview
+        const reader = new FileReader();
+        reader.onload = () => {
+            setImagePreview(reader.result); // Update the preview
+            setNewProduct({ ...newProduct, image: reader.result }); // Set the image in newProduct
+        };
+        reader.onerror = () => {
+            alert("Error reading file.");
+        };
+        reader.readAsDataURL(file); // Convert image to base64
+    }
+};
 
    
      return (
@@ -257,6 +282,7 @@ const Product = () => {
                              {editIndex !== null ? "Edit Product" : "Add Product"}
                         </h2>
                         <div className="grid grid-cols-1 gap-4">
+                            <div>
                             <input
                                 type="text"
                                 name="name"
@@ -265,6 +291,9 @@ const Product = () => {
                                 onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
                                 className="border border-lightBrown2 p-2 rounded"
                             />
+                                 {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                            </div>
+                            <div>
                             <textarea
                                 name="description"
                                 value={newProduct.description}
@@ -272,6 +301,9 @@ const Product = () => {
                                  onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
                                 className="border border-lightBrown2 p-2 rounded"
                             />
+                                 {errors.description && <p className="text-red-500 text-xs mt-1">{errors.description}</p>}
+                            </div>
+                            <div>
                             <input
                                 type="text"
                                 name="price"
@@ -280,8 +312,11 @@ const Product = () => {
                                  onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })}
                                 className="border border-lightBrown2 p-2 rounded"
                             />
+                                 {errors.price && <p className="text-red-500 text-xs mt-1">{errors.price}</p>}
+                            </div>
 
                             {/* Category Select */}
+                            <div>
                             <select
                                 name="category"
                                 value={newProduct.category}
@@ -293,8 +328,10 @@ const Product = () => {
                                 <option value="Cold">Cold</option>
                                 <option value="Bean">Bean</option>
                             </select>
-
+                             {errors.category && <p className="text-red-500 text-xs mt-1">{errors.category}</p>}
+</div>
                             {/* Stock Status Select */}
+                            <div></div>
                             <select
                                 name="stock"
                                 value={newProduct.stock}
@@ -305,14 +342,18 @@ const Product = () => {
                                 <option value="In-stock">In-stock</option>
                                 <option value="Out of stock">Out of stock</option>
                             </select>
-
+                         {errors.stock && <p className="text-red-500 text-xs mt-1">{errors.stock}</p>}
+</div>
                             {/* Image Upload */}
+                            <div>
                             <input
                                 type="file"
                                 accept="image/png, image/jpeg"
                                 onChange={handleImageChange}
                                 className="border border-lightBrown2 p-2 rounded"
                             />
+                         {errors.image && <p className="text-red-500 text-xs mt-1">{errors.image}</p>}
+                            </div>
                             {imagePreview && (
                                 <div className="mt-2">
                                     <img src={imagePreview} alt="Preview" className="w-full h-32 object-cover" />
@@ -326,12 +367,6 @@ const Product = () => {
                                 >
                                     Cancel
                                 </button>
-                                <button
-                                    onClick={handleAddProduct}
-                                    className="bg-lightBrown text-white px-4 py-2 rounded"
-                                >
-                                    Save
-                                </button>
                                  <button
                                      onClick={handleAddProduct}
                                      className="px-4 py-2 bg-lightBrown text-white rounded-lg"
@@ -341,8 +376,9 @@ const Product = () => {
                                  </button>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        </div>
+                    
+                
             )}
         </div>
     );
